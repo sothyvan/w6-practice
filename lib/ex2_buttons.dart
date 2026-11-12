@@ -20,28 +20,32 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                child: Text(
-                  'Custom Buttons',
-                  style: TextStyle(
-                    fontSize: 24,
-                  ),
-                ),
-              ),
-              SizedBox(height: 18,),
-              CustomButton(label: 'Submit', icon: Icons.check),
-              SizedBox(height: 18,),
-              CustomButton(label: 'Time', icon: Icons.access_time, iconPosition: IconPosition.right, type: ButtonType.secondary,),
-              SizedBox(height: 18,),
-              CustomButton(label: 'Account', icon: Icons.account_tree_sharp, iconPosition: IconPosition.right, type: ButtonType.disabled,)
-            ],
-          ),
-        )
+        appBar: AppBar(
+          title: const Text('Custom buttons'),
+        ),
+        body: ListView(
+          padding: const EdgeInsets.all(16),
+          children: const [
+            CustomButton(
+              label: 'Submit',
+              icon: Icons.check,
+            ),
+            SizedBox(height: 18),
+            CustomButton(
+              label: 'Time',
+              icon: Icons.access_time,
+              iconPosition: IconPosition.right,
+              type: ButtonType.secondary,
+            ),
+            SizedBox(height: 18),
+            CustomButton(
+              label: 'Account',
+              icon: Icons.account_tree_sharp,
+              iconPosition: IconPosition.right,
+              type: ButtonType.disabled,
+            ),
+          ],
+        ),
       ),
     ),
   );

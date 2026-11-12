@@ -9,38 +9,27 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
-              padding: EdgeInsets.all(12),
-              child: Text(
-                'My Hobbies',
-                style: TextStyle(
-                  fontSize: 24,
-                )),
-            ),
-            Container(
-              padding: EdgeInsets.all(40),
-              color: Colors.grey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  HobbyCard(
-                    title: 'Football', 
-                    icon: Icons.sports_soccer),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  HobbyCard(
-                    title: 'Gaming',
-                    icon: Icons.sports_esports,
-                    color: Colors.green),
-                ],
+        appBar: AppBar(
+          title: const Text('My Hobbies'),
+        ),
+        body: Container(
+          color: Colors.grey,
+          child: ListView(
+            padding: const EdgeInsets.all(40),
+            children: const [
+              HobbyCard(
+                title: 'Football',
+                icon: Icons.sports_soccer,
               ),
-            ) 
-          ],
-        ), // YOUR CODE
+              SizedBox(height: 10),
+              HobbyCard(
+                title: 'Gaming',
+                icon: Icons.sports_esports,
+                color: Colors.green,
+              ),
+            ],
+          ),
+        ),
       ),
     ),
   );
@@ -68,9 +57,16 @@ class HobbyCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Icon(icon),
-          SizedBox(width: 20),
-          Text(title),
+          Icon(icon, color: Colors.white),
+          const SizedBox(width: 20),
+          Expanded(
+            child: Text(
+              title,
+              style: const TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
         ],
       ),
     );
